@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeytin&amp;Co — Zeytinyağı, Zeytin, Avokado, Limon</title>
+    <meta name="description" content="Soğuk sıkım zeytinyağı, zeytin, avokado ve limon. Doğrudan bahçeden." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="ld-brand">Zeytin<span>&amp;</span>Co</div>
+      <div class="ld-foot">
+        <div class="ld-bar"><i></i></div>
+        <div class="ld-num"><span id="ld-num">0</span>%</div>
+      </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+      <a href="#top" class="logo">Zeytin<span>&amp;</span>Co</a>
+      <nav aria-label="Ana menü">
+        <a href="#lezzetler">Koleksiyon</a>
+        <a href="#dukkan">Dükkân</a>
+        <a href="#surec">Süreç</a>
+        <a href="#panel">Satıcı paneli</a>
+      </nav>
+      <button class="cart-btn" id="cart-btn" aria-label="Sepeti aç">Sepet <span id="cart-count">0</span></button>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-hero><i></i> Ege · 2026 hasadı</p>
+          <h1 class="hero-title" data-lines>Sade, taze, <em>doğrudan</em> bahçeden.</h1>
+          <p class="lead" data-hero>Soğuk sıkım zeytinyağı, taş fıçı zeytin, avokado ve limon. Sabah toplanır, akşam yola çıkar.</p>
+          <div class="hero-cta" data-hero>
+            <a class="btn" href="#dukkan">Dükkâna git</a>
+            <a class="link" href="#lezzetler">Koleksiyonu keşfet <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="hero-meta" data-hero>
+            <li><b>6 sa</b><span>tarladan şişeye</span></li>
+            <li><b>0.2%</b><span>serbest asitlik</span></li>
+            <li><b>48 sa</b><span>kapına teslim</span></li>
+          </ul>
+        </div>
+        <div class="hero-stage" data-ht-zone>
+          <canvas id="hero-canvas" aria-label="Nokta desenli avokado. İmleçle üzerinde gezinince dağılır." role="img"></canvas>
+          <p class="hint" data-hero>İmleci üzerinde gezdir</p>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+      <!-- KOLEKSİYON -->
+      <section class="collection" id="lezzetler">
+        <div class="col-sticky">
+          <div class="col-left">
+            <p class="eyebrow"><i></i> Koleksiyon</p>
+            <ol class="col-list" id="col-list"></ol>
+            <div class="col-detail" id="col-detail" aria-live="polite"></div>
+          </div>
+          <div class="col-stage" data-ht-zone>
+            <canvas id="col-canvas" aria-hidden="true"></canvas>
+            <span class="col-index" id="col-index">01 / 04</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- DÜKKÂN -->
+      <section class="shop" id="dukkan">
+        <div class="shop-head">
+          <div>
+            <p class="eyebrow"><i></i> Dükkân</p>
+            <h2 class="h2" data-lines>Bu hafta <em>raflarda</em></h2>
+          </div>
+          <div class="tabs" id="tabs" role="tablist" aria-label="Kategori"><span class="tab-ind" id="tab-ind"></span></div>
+        </div>
+        <div class="cards" id="cards"></div>
+      </section>
+
+      <!-- SÜREÇ -->
+      <section class="process" id="surec">
+        <div class="process-sticky">
+          <div class="process-text">
+            <p class="eyebrow"><i></i> Süreç</p>
+            <h2 class="h2" data-lines>Tarladan şişeye, <em>altı saat.</em></h2>
+            <ul class="metrics">
+              <li><b id="m-hour">0</b><span>saat</span><small>hasattan şişelemeye</small></li>
+              <li><b id="m-acid">0.00</b><span>%</span><small>serbest asitlik</small></li>
+              <li><b id="m-poly">0</b><span>mg/kg</span><small>polifenol</small></li>
+            </ul>
+          </div>
+          <div class="process-bottle">
+            <svg viewBox="0 0 200 380" role="img" aria-label="Kaydırdıkça dolan zeytinyağı şişesi">
+              <defs>
+                <clipPath id="bclip"><path d="M85 24H115V84C115 106 152 114 152 156V322Q152 350 124 350H76Q48 350 48 322V156C48 114 85 106 85 84Z"/></clipPath>
+                <linearGradient id="oilg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EBD684"/><stop offset="1" stop-color="#C98A1E"/></linearGradient>
+              </defs>
+              <g clip-path="url(#bclip)">
+                <rect width="200" height="380" fill="#ECE7D6" opacity=".05"/>
+                <g id="oil" transform="translate(0 360)">
+                  <g id="wave1"><path d="M-100 12Q-75 0 -50 12T0 12T50 12T100 12T150 12T200 12T250 12T300 12V400H-100Z" fill="url(#oilg)"/></g>
+                  <g id="wave2" opacity=".35"><path d="M-100 16Q-75 6 -50 16T0 16T50 16T100 16T150 16T200 16T250 16T300 16V400H-100Z" fill="#fff"/></g>
+                </g>
+                <path d="M62 170V320" stroke="#fff" stroke-opacity=".22" stroke-width="7" stroke-linecap="round"/>
+              </g>
+              <path d="M85 24H115V84C115 106 152 114 152 156V322Q152 350 124 350H76Q48 350 48 322V156C48 114 85 106 85 84Z" fill="none" stroke="#ECE7D6" stroke-opacity=".7" stroke-width="2"/>
+              <circle id="drop" cx="100" cy="-10" r="5" fill="#EBD684"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- SATICI PANELİ -->
+      <section class="panel" id="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow"><i></i> Satıcı paneli</p>
+            <h2 class="h2" data-lines>Bugün, <em>anlık.</em></h2>
+          </div>
+          <span class="live"><i></i> Canlı veri</span>
+        </div>
+        <div class="panel-grid">
+          <div class="tile kpi" data-tile><small>Bugünkü ciro</small><b id="k-rev">₺0</b><span class="delta">+18% dün</span></div>
+          <div class="tile kpi" data-tile><small>Sipariş</small><b id="k-ord">0</b><span class="delta">+9% dün</span></div>
+          <div class="tile kpi" data-tile><small>Ortalama sepet</small><b id="k-avg">₺0</b><span class="delta">+4% dün</span></div>
+          <div class="tile chart" data-tile>
+            <h3>Haftalık satış</h3>
+            <div class="bars" id="bars"></div>
+          </div>
+          <div class="tile donut" data-tile>
+            <h3>Kategori payı</h3>
+            <div class="donut-wrap">
+              <svg viewBox="0 0 120 120" id="donut" aria-hidden="true"></svg>
+              <ul class="legend" id="legend"></ul>
+            </div>
+          </div>
+          <div class="tile feed" data-tile>
+            <h3>Canlı siparişler</h3>
+            <ul id="feed"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="foot-top">
+        <div class="foot-brand"><strong>Zeytin&amp;Co</strong><span>©2026 · Ege’den, Alanya’dan, Hatay’dan</span></div>
+        <nav class="foot-col" aria-label="Dükkân"><h3>Dükkân</h3><ul><li><a href="#dukkan">Zeytinyağı</a></li><li><a href="#dukkan">Zeytin</a></li><li><a href="#dukkan">Avokado</a></li><li><a href="#dukkan">Limon</a></li></ul></nav>
+        <nav class="foot-col" aria-label="Şirket"><h3>Şirket</h3><ul><li><a href="#lezzetler">Koleksiyon</a></li><li><a href="#surec">Süreç</a></li><li><a href="#panel">Satıcı paneli</a></li></ul></nav>
+        <nav class="foot-col" aria-label="İletişim"><h3>İletişim</h3><ul><li><a href="mailto:merhaba@zeytinco.example">merhaba@zeytinco.example</a></li><li><a href="tel:+902120000000">+90 212 000 00 00</a></li></ul></nav>
+      </div>
+      <div class="foot-rule"><button type="button" class="up" id="to-top">Yukarı ↑</button></div>
+      <div class="foot-stage" data-ht-zone>
+        <canvas id="foot-canvas" role="img" aria-label="zeytin"></canvas>
+      </div>
+    </footer>
+
+    <!-- SEPET -->
+    <div class="overlay" id="overlay"></div>
+    <aside class="drawer" id="drawer" aria-label="Sepet" aria-hidden="true">
+      <div class="drawer-head">
+        <h2>Sepet</h2>
+        <button class="x" id="drawer-close" aria-label="Kapat">×</button>
+      </div>
+      <ul class="lines" id="lines"></ul>
+      <div class="drawer-foot">
+        <div class="total"><span>Toplam</span><b id="total">₺0</b></div>
+        <button class="btn wide" id="checkout">Siparişi tamamla</button>
+      </div>
+    </aside>
+  </body>
+</html>
